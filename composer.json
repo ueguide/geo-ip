@@ -1,7 +1,7 @@
 {
     "name": "thelhc/geo-ip",
     "description": "Get user geography from ip address",
-    "type": "composer-plugin",
+    "license": "MIT",
     "authors": [
         {
             "name": "Aaron Kaczmarek",

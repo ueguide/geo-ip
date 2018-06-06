@@ -2,6 +2,7 @@
 
 namespace TheLHC\GeoIP\Tests;
 
+use Dotenv\Dotenv;
 use Orchestra\Testbench\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
@@ -18,5 +19,19 @@ class TestCase extends BaseTestCase
         return [
             'GeoIP' => 'TheLHC\GeoIP\Facades\GeoIP'
         ];
+    }
+
+    /**
+     * Define environment setup.
+     *
+     * @param  \Illuminate\Foundation\Application $app
+     * @return void
+     */
+    protected function getEnvironmentSetUp($app)
+    {
+        $dotenv = new Dotenv(__DIR__);
+        $dotenv->load();
+
+        $app['config']->set('geo_ip.api_key', env('GEO_API_KEY'));
     }
 }

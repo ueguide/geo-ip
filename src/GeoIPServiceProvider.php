@@ -19,7 +19,7 @@ class GeoIPServiceProvider extends ServiceProvider
 
         $this->app->bind('\TheLHC\GeoIP\GeoIPInterface', function($app)
         {
-            return new FreegoIPRepository($app['config']->get('geo_ip'));
+            return new ProIpApiRepository($app['config']->get('geo_ip'));
         });
 
         $this->app->singleton('geo_ip', function ($app) {

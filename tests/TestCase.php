@@ -29,7 +29,7 @@ class TestCase extends BaseTestCase
      */
     protected function getEnvironmentSetUp($app)
     {
-        $dotenv = new Dotenv(__DIR__);
+        $dotenv = Dotenv::create(__DIR__);
         $dotenv->load();
 
         $app['config']->set('geo_ip.api_key', env('GEO_API_KEY'));
